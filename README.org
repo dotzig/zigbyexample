@@ -1,0 +1,12 @@
+#+TITLE: Zig By Example
+* Table Of contents                                                     :TOC@4:
+- [[#hello-world][Hello World]]
+
+* Hello World 
+#+begin_src zig
+const warn = @import("std").debug.warn;
+
+pub fn main() void {
+    warn("Hello, world!\n", .{});
+}
+#+end_src
