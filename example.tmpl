@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: {{.Name}}</title>
+    <title>Zig by Example: {{.Name}}</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -21,7 +21,7 @@
   </script>
   <body>
     <div class="example" id="{{.ID}}">
-      <h2><a href="./">Go by Example</a>: {{.Name}}</h2>
+      <h2><a href="./">Zig by Example</a>: {{.Name}}</h2>
       {{range .Segs}}
       <table>
         {{range .}}
@@ -29,22 +29,10 @@
           <td class="docs">
             {{.DocsRendered}}
           </td>
-          <td class="code{{if .CodeEmpty}} empty{{end}}{{if .CodeLeading}} leading{{end}}">
-            {{if .CodeRun}}<a href="http://play.golang.org/p/{{$.URLHash}}"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />{{end}}
-          {{.CodeRendered}}
-          </td>
         </tr>
         {{end}}
       </table>
       {{end}}
-      {{if .NextExample}}
-      <p class="next">
-        Next example: <a href="{{.NextExample.ID}}">{{.NextExample.Name}}</a>.
-      </p>
-      {{end}}
-      <p class="footer">
-        by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> | <a href="https://github.com/mmcgrana/gobyexample/blob/master/examples/{{.ID}}">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
-      </p>
     </div>
     <script>
       var codeLines = [];
