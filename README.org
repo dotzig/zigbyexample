@@ -1,6 +1,9 @@
 * Table Of contents                                                     :TOC@4:
 - [[#hello-world][Hello World]]
 - [[#values][Values]]
+- [[#assignments-binding--variables][Assignments (binding) & variables]]
+  - [[#assignments][Assignments]]
+  - [[#variables][Variables]]
 
 * Hello World
 #+begin_src zig
@@ -43,3 +46,23 @@ pub fn main() void {
     
   }
 #+end_src
+* Assignments (binding) & variables
+** Assignments
+#+begin_src zig
+  pub fn main () void {
+      // const <identifier>: <type> (optional) = value;
+      const x = 1;
+      const y: i32 = 2;
+
+      y += 1; // compile error, constants are immutable
+  }
+#+end_src
+** Variables
+#+begin_src zig
+  pub fn main () void {
+    // var <identifier>: <type> (optional) = value;
+    var i = 2;
+    var y: i32; // compile error variables should be initialized inline.
+  }
+#+end_src
+
