@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Zig by Example: {{.Name}}</title>
+    <link rel=stylesheet href="site.css">
+  </head>
+  <body>
+    <div class="example" id="hello-world">
+      <h2><a href="/">Zig by Example</a>: Hello World</h2>
+      <table>
+        <tr>
+          <td class="docs">
+            Hello world 1
+          </td>
+        </tr>
+      </table>
+      <table>
+        <tr>
+          <td class="docs">
+            <pre>
+              <code>
+                const std = @import ("std");
+                pub fn main() void {
+                    std.debug.warn("Hello World", .{});
+                }
+              </code>
+            </pre>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
