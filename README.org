@@ -116,7 +116,45 @@ of else branch.
   }
 #+end_src
 *** Labeled While loops
+Labeled loops can be referenced through inner loops.
 #+begin_src zig
+  pub fn testLabel() {
+      var i:i32 = 1;
+      outer: while(true) {
+          while(i<6) {
+              i+=1;
+              if (i == 2) {
+                  break :outer;
+              }
+          }
 
+      }
+  }
 #+end_src
 ** For
+#+begin_src zig
+  pub fn for_expr() i32 {
+      const arr = [_]i32{1,2,3};
+      var sum: i32 = 0;
+      for (arr) |item| { // for loops can iterate over arrays, slices
+        sum += item;
+      }
+      sum = 0;
+      for (arr) |item, idx| { // if you want index of each element just capture a second argument.
+        sum += arr[idx]; 
+      }
+
+      const result = for (arr) |item| {
+
+      } else 2; // like while expressions, for loops can have else expressions which will get executed when for loop exits,
+      // and again like while expressions if break is called whitin the loop else is not evaluated.
+
+      sum = 0;
+      outer: for (arr) |i| { // for loops can be labeled to be referenced from inner loops
+          for ([_]i32{4,5,6}) |j| {
+            sum += j;
+            if (sum == 9) break :outer;
+          }
+      }
+  }
+#+end_src
