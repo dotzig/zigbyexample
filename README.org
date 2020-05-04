@@ -4,6 +4,12 @@
 - [[#assignments-binding--variables][Assignments (binding) & variables]]
   - [[#assignments][Assignments]]
   - [[#variables][Variables]]
+- [[#loops][Loops]]
+  - [[#while][While]]
+    - [[#continue-expression][Continue Expression]]
+    - [[#while-is-an-expression][While is an expression]]
+    - [[#labeled-while-loops][Labeled While loops]]
+  - [[#for][For]]
 
 * Hello World
 #+begin_src zig
@@ -66,3 +72,51 @@ pub fn main() void {
   }
 #+end_src
 
+* Loops
+** While
+#+begin_src zig
+  var i: i32 = 0;
+  while(i < 20) {
+    i += 1;
+  }
+
+  var i: i16 = 0;
+  while(true) {
+    if (i == 10) break; // use break to break the loop.
+    if (i == 2) continue; // use continue to jump back to defenition of the loop.
+  }
+
+#+end_src
+*** Continue Expression
+While loops has a continue expression which will be executed every time continue has been called.
+#+begin_src zig
+  var i: i32 = 20;
+  while (i < 20) : (i += 1) {} // (i+=1) get executed every time loop continues, note that there is no continue keyword in our loop but
+// every time a loop reaches it's end of body a continue is implicitly called.
+
+#+end_src
+*** While is an expression
+In zig, while loops are expressions and the result's of the expression is the value
+of =else= branch of the condition that is getting checked every time. =break= gets a parameter that is the result
+of else branch.
+#+begin_src zig
+  pub fn while_expr() i32 {
+    var i:i32 = 0;
+      return while(i < 10) {
+        i += 1;
+        if (i == 5) break i; // i is the result of else branch
+      }
+  }
+
+  pub fn while_expr2() i32 {
+    var i:i32 = 0;
+      return while(i < 10) {
+        i += 1;
+      } else i; // else branch can be accessed directly, but remember if break is called within the body else body is not evaluated.
+  }
+#+end_src
+*** Labeled While loops
+#+begin_src zig
+
+#+end_src
+** For
