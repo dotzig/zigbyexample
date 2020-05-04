@@ -11,6 +11,7 @@
     - [[#labeled-while-loops][Labeled While loops]]
   - [[#for][For]]
 - [[#if][If]]
+- [[#switch][Switch]]
 
 * Hello World
 #+begin_src zig
@@ -180,6 +181,15 @@ Labeled loops can be referenced through inner loops.
         return 1;
       } else {
         return 2;
+      }
+  }
+#+end_src
+* Switch
+#+begin_src zig
+  pub fn test_switch() i32 {
+      return switch (2) {
+        1,2,3 => 1,
+        4...10 => 2,
       }
   }
 #+end_src
